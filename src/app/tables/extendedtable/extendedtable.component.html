@@ -1,0 +1,58 @@
+<mat-dialog-content [formGroup]="form">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Choix Theme</mat-label>
+        <select matNativeControl formControlName="typeproduitlib" [(ngModel)]="themeSelected"
+                (change)="selectChangeTheme($event)">
+            <option label=""></option>
+
+            <option [value]="t.id" *ngFor="let t of allTheme">
+                {{t.libelle}}
+            </option>
+
+        </select>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+        <mat-label>Choix TypeProduit</mat-label>
+        <select matNativeControl formControlName="typeproduitlib" (change)="selectChange($event)">
+            <option label=""></option>
+            <option [value]="t.id" *ngFor="let t of donnestypeproduit">
+                {{t.libelle}}
+            </option>
+
+        </select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Choix Produit</mat-label>
+        <select matNativeControl formControlName="libelle" [(ngModel)]="mySelect" (change)="selectLibelle($event)">
+            <option value="" selected></option>
+            <option *ngFor="let t of produits">
+                {{t.libelle}}
+            </option>
+
+        </select>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+        <mat-label>Enter le prix</mat-label>
+        <input matInput placeholder="prix" [(ngModel)]="prix" name="prix" required [ngModelOptions]="{standalone: true}" >
+    </mat-form-field>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+    <button class="mat-raised-button" (click)="close()">
+        Close
+    </button>
+
+    <button class="mat-raised-button mat-primary" (click)="save()">
+        Save
+    </button>
+
+</mat-dialog-actions>

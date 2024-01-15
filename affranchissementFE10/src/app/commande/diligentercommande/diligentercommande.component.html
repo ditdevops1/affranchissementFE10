@@ -1,0 +1,62 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="material-datatables" >
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Bureau</th>
+                                    <th scope="col">TypeProduit</th>
+                                    <th scope="col">Montant</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Action</th>
+                                    <th scope="col">Consultation</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let dc of commandeAdresseeCaisse">
+                                    <td>{{dc.idCommande}}</td>
+                                    <td>{{dc.libelle}}</td>
+                                    <td>{{dc.montant}}</td>
+                                    <td>{{dc.dateoperation | date:"dd-MM-yyyy"}}</td>
+                                    <td>
+                                        <a >
+                                                <span class="clickable">
+                                                    Rejeter
+                                                </span>
+
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <mat-button-toggle> <a (click)="details(dc.idCommande)">
+                                                <span class="clickable" >
+                                                    Détails
+                                                </span>
+                                        </a>
+                                        </mat-button-toggle>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- <div class="container">
+                               <ul class="nav nav-pills">
+                                 <li [ngClass]="{'active':i==currentPage}" *ngFor="let p of pages ; let i=index">
+                                   <a class="clickable" (click)="gotoPage(i)">{{i+1}}</a>
+
+                                 </li>
+                               </ul>
+                             </div>-->
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>

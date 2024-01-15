@@ -1,0 +1,53 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="material-datatables" >
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Livraison No</th>
+                                    <th scope="col">TypeProduit</th>
+                                    <th scope="col">Date Livraison</th>
+                                    <th scope="col">Montant</th>
+                                 
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let dc of commandeLivreeCaisse">
+                                    <td>{{dc.idLivraison}}</td>
+                                    <td>{{dc.libelle}}</td>
+                                    <td>{{dc.datelivraison | date:"dd-MM-yyyy"}}</td>
+                                    <td>{{dc.montant}}</td>
+                                    <td>
+                                         <a (click)="detailsapprouvercmd(dc.idLivraison)">
+                                                
+                                        <i class="material-icons clickable">visibility</i>
+                                                
+                                        </a>
+                                       
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- <div class="container">
+                               <ul class="nav nav-pills">
+                                 <li [ngClass]="{'active':i==currentPage}" *ngFor="let p of pages ; let i=index">
+                                   <a class="clickable" (click)="gotoPage(i)">{{i+1}}</a>
+
+                                 </li>
+                               </ul>
+                             </div>-->
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>

@@ -1,0 +1,198 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">add_shopping_cart</i>
+                        </div>
+                        <h4 class="card-title">Retourner Stock</h4>
+                    </div>
+                    <div class="card-body ">
+
+                        <!-- <legend>Customisable Select</legend> -->
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field>
+                                    <!-- <mat-label>Caisse</mat-label> -->
+                                    <select placeholder="La caisse" matNativeControl formControlName="firstCtrl"
+                                            [(ngModel)]="idCaisse" (change)="selectIdCaisse($event)">
+                                        <option [value]="c.id" *ngFor="let c of datacaisse">
+                                            {{c.libelle}}
+                                        </option>
+                                    </select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-6">
+                                <mat-form-field>
+                                    <mat-label>Type Produit</mat-label>
+                                    <select matNativeControl formControlName="secondCtrl" [(ngModel)]="typePSelected"
+                                            (change)="selectTypeProduit($event)">
+                                        <option value="" selected></option>
+                                        <option [value]="t.id" *ngFor="let t of datatypeproduit">
+                                            {{t.libelle}}
+                                        </option>
+                                    </select>
+                                </mat-form-field>
+                            </div>
+
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+
+
+
+                                <div class="card-body ">
+                                    <mat-form-field class="col-md-8">
+                                        <textarea matInput placeholder="Motif" [(ngModel)]="motif"></textarea>
+                                    </mat-form-field>
+
+                                    <div class="material-datatables">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Libellé Produit</th>
+                                                <th scope="col">Prix</th>
+                                                <th scope="col">En Stock</th>
+                                                <th scope="col">Quantité</th>
+                                                <th scope="col">Cocher</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr *ngFor="let p of donneesCommandes">
+                                                <td>{{p.gs_produit.libelle}}</td>
+                                                <td>{{p.gs_produit.prix}}</td>
+                                                <td>{{p.quantite}}</td>
+                                                <td>
+                                                    <mat-form-field>
+                                                        <mat-label>quantite</mat-label>
+                                                        <input matInput class="col-md-2" type="number" matNativeControl
+                                                               formControlName="thirdCtrl" [(ngModel)]="qt" (change)="getqt($event)" required>
+                                                    </mat-form-field>
+                                                </td>
+                                                <td>
+                                                    <div class="form-check mr-auto">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox"  [value]="p" (change)="setCheckbox($event,p)">
+                                                            <span class="form-check-sign">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <div class="card-footer ">
+                                                <div class="row">
+                                                    <div class="col-sm-6 text-right">
+                                                        <button mat-raised-button type="submit" class="btn btn-success"
+                                                                (click)="ajouoterPanier()">Ajouter</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">shopping_cart</i>
+                        </div>
+                        <h4 class="card-title">Panier</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form class="form-horizontal">
+
+                        </form>
+                    </div>
+                    <div class="card-footer ">
+                        <div class="row">
+                            <div class="col-md-6 mr-auto">
+
+                                <input id="num" name="nbrProd" value="" style="display: none;" />
+                                <table class="table striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Produit</th>
+                                        <th>Quantite</th>
+<!--                                        <th>Prix</th>-->
+                                        <!--  <th>Montant</th>-->
+<!--                                        <th>DateOperation </th>-->
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr *ngFor="let l of panier">
+                                        <td width="30%">{{l.gs_produit.libelle}}</td>
+                                        <td width="30%">{{l.quantite}}</td>
+<!--                                        <td width="30%">{{l.gs_produit.prix}}</td>-->
+                                        <!-- <td width="30%">{{l.quantite}}*{{l.gs_produit.prix}}</td>-->
+<!--                                        <td width="20%">{{l.gs_commande.dateoperation}}</td>-->
+
+                                        <td>
+                                            <button mat-raised-button type="button" class="btn btn-danger btn-link" matTooltip="supprimer"
+                                                    [matTooltipPosition]="'below'" (click)="removeFoodOrder(l)">
+                                                <i class="material-icons">close</i>
+                                            </button>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td colspan="2">Montant</td>
+                                        <td>{{montant}}</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+
+
+
+                                <div class="card-footer ">
+                                    <div class="row">
+                                        <div class="col-sm-6 text-right">
+                                            <button mat-raised-button type="submit" class="btn btn-success"
+                                                    (click)="commanderPanier()">Retourner</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+

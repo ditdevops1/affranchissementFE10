@@ -1,0 +1,90 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="material-datatables">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Libellé Produit</th>
+                                    <th scope="col">Prix Unitaire</th>
+                                    <th scope="col">Quantité</th>
+                                    <th scope="col">Quantité Reçu</th>
+                                    <th scope="col">Cocher</th>
+
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let l of approuverStockRetourn">
+                                    <td>{{l.libelleProduit}}</td>
+                                    <td>{{l.prixunitaire}}</td>
+                                    <td>{{l.quantite}}</td>
+
+                                    <td>
+                                        <mat-form-field>
+                                            <mat-label>quantiteReçu</mat-label>
+                                            <input matInput class="col-md-2" type="number"   (change)="selectQuantite($event)"
+                                                   [(ngModel)]="l.quantiteRecu" required>
+                                        </mat-form-field>
+                                    </td>
+
+
+                                    <td>
+                                        <div class="form-check mr-auto">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="checkbox"  [value]="l" (change)="setCheckbox($event,l)">
+                                                <span class="form-check-sign">
+                                                        <span class="check"></span>
+                                                    </span>
+                                            </label>
+                                        </div>
+                                    </td>
+
+
+<!--
+                                    <td class="td-actions text-right">
+                                        <button mat-raised-button type="button" matTooltip="Approuver"
+                                                [matTooltipPosition]="'below'"  class="btn btn-success btn-round"(click)="approuver(l)">
+                                            <i class="material-icons">thumb_up_off_alt</i>
+                                        </button>
+                                    </td>
+                                    <td class="td-actions text-right">
+                                        <button mat-raised-button type="button" matTooltip="Rejetter"
+                                                [matTooltipPosition]="'below'" class="btn btn-danger btn-round" (click)="rejetterLivraison()">
+                                            <i class="material-icons">thumb_down_off_alt</i>
+                                        </button>
+                                    </td>-->
+                                </tr>
+                                <div class="card-footer ">
+                                    <div class="row">
+                                        <div class="col-sm-6 text-right">
+
+                                            <button class="btn btn-success" (click)="retour()"> Retour</button>
+
+
+                                        </div>
+
+                                        <div class="col-sm-6 text-right">
+
+                                            <button class="btn btn-success" (click)="approuver(idP)"> approuver</button>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>

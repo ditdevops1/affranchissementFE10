@@ -1,0 +1,87 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <br>
+                <div class="row">
+                    <div class="col-md-4 mr-auto">
+
+                        <legend>Caisse</legend>
+
+                        <mat-form-field>
+                            <mat-select placeholder="Choisir Caisse" name="caisse" [(value)]="selectedCaisse">
+                                <mat-option *ngFor="let c of caissebystructure" [value]="c.id">
+                                    {{c.libelle }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                    <div class="col-md-4 mr-auto">
+                        <legend>Date</legend>
+                        <mat-form-field >
+                            <input matInput   [matDatepicker]="picker" placeholder="Choisir une date"  (dateChange)="onChangeEvent($event)" (click)="picker.open()">
+
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div class="col-md-4 mr-auto">
+                        <legend> Rechercher</legend>
+                        <button mat-raised-button class="btn btn-info" (click)="rechertoutstock()">
+                            <span class="material-icons">search</span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <br>
+
+
+
+                <div class="material-datatables" >
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Libelle</th>
+                            <th scope="col">Theme</th>
+                            <th scope="col">Quantité</th>
+                            <th scope="col"> </th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let s of toutstock">
+                            <td>{{s.gs_produit.libelle}}</td>
+                            <td>{{s.gs_produit.gs_theme.libelle}} </td>
+                            <td>{{s.quantite}}</td>
+                            <td> </td>
+
+
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+

@@ -1,0 +1,87 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-rose card-header-text">
+                <div class="card-text">
+                    <h4 class="card-title">Modification</h4>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <br>
+                <div class="row">
+                    <div class="col-md-4 mr-auto">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="ID" [(ngModel)]="produits.id" disabled>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mr-auto">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="libelle" [(ngModel)]="produits.libelle" type="text">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mr-auto">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="prix" type="text" [(ngModel)]="produits.prix">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-12 mr-auto">
+                        <mat-form-field>
+                            <input matInput placeholder="id theme" [(ngModel)]="produits.gs_theme.id" disabled>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mr-auto">
+
+                        <mat-form-field>
+                            <input matInput placeholder="libele" [(ngModel)]="produits.gs_theme.libelle">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mr-auto">
+                        <mat-form-field>
+                            <input matInput placeholder="Date" [(ngModel)]="produits.gs_theme.datetheme" type="text">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-12 mr-auto">
+                        <mat-form-field>
+                            <input matInput placeholder="id Type Produit" [(ngModel)]="produits.gs_typeProduit.id"
+                                   disabled>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6 mr-auto">
+
+                        <mat-form-field>
+                            <input matInput placeholder="libele" [(ngModel)]="produits.gs_typeProduit.libelle">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="card-footer ">
+                <div class="row">
+                    <div class="col-md-6 mr-auto">
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-primary" (click)="modifier()">Save</button>
+                    </div>
+                    <div class="col-md-6 mr-aut">
+                        <button mat-raised-button type="submit" class="btn btn-fill btn-danger" (click)="retour()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- end card -->
+    </div>
+</div>

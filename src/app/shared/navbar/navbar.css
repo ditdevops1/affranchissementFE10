@@ -1,0 +1,38 @@
+.updatePW {
+    background-color: #ffffff;/*#e4fddf;*/
+    /* box-shadow: 1px 1px 1px #D83F3D; */
+    border: 1px solid #FFFFFF;/*#9FC6FF;*/
+    padding: 4px;
+    /*arrondir les coins en haut, � gauche, en bas et � droite
+    -moz-border-radius: 7px 7px;
+    -webkit-border-radius: 7px 7px;
+    border-radius: 0px 0px 0px 7px;*/
+    height: 15px;
+    margin-left: auto;
+    margin-right: 1px;
+    color: #0925f0;
+    font-size: 12px;
+    font-style:  italic;
+    font-size-adjust:none;
+    text-align: right;
+}
+
+
+.loginEncours {
+    background-color: #ffffff;/*#e4fddf;*/
+    box-shadow: 1px 1px 1px #D83F3D;
+    border: 1px solid #FFFFFF;/*#9FC6FF;*/
+    padding: 4px;
+    /*arrondir les coins en haut, � gauche, en bas et � droite*/
+    -moz-border-radius: 7px 7px;
+    -webkit-border-radius: 7px 7px;
+    border-radius: 0px 0px 7px 7px;
+    height: 15px;
+    margin-left: auto;
+    margin-right: 1px;
+    color: #0925f0;
+    font-size: 12px;
+    font-style:  italic;
+    font-size-adjust:none;
+    text-align: right;
+}

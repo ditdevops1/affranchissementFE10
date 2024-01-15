@@ -1,0 +1,208 @@
+
+<div class="container">
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-body">
+
+
+    <mat-form-field appearance="fill">
+        <mat-label>Rechercher</mat-label>
+        <mat-select [(value)]="select">
+            <mat-option>None</mat-option>
+            <mat-option value="option1">Stock Type Produit</mat-option>
+            <mat-option value="option2">Tout Stock</mat-option>
+
+        </mat-select>
+    </mat-form-field>
+
+<!--    <p>You selected: {{select}}</p>-->
+
+
+
+<div class="container">
+
+    <div *ngIf="select=='option1'">
+
+
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-body">
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4 mr-auto">
+
+                                <legend>Type Produit</legend>
+
+                                <mat-form-field>
+                                    <mat-select placeholder="Choisir Produit" name="produit" [(value)]="selected">
+                                        <mat-option *ngFor="let p of datatypeproduit" [value]="p.id">
+                                            {{ p.libelle }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                            </div>
+                            <div class="col-md-4 mr-auto">
+                                <legend>Date</legend>
+                                <mat-form-field >
+                                    <input matInput   [matDatepicker]="picker" placeholder="Choisir une date"  (dateChange)="onChangeEvent($event)" (click)="picker.open()">
+
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+
+                            </div>
+
+                            <div class="col-md-4 mr-auto">
+                                <legend> Rechercher</legend>
+                                <button mat-raised-button class="btn btn-info" (click)="recher()">
+                                    <span class="material-icons">search</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <br>
+
+
+
+                        <div class="material-datatables" >
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Libelle</th>
+                                    <th scope="col">Theme</th>
+                                    <th scope="col">Quantité</th>
+                                    <th scope="col"> </th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let s of stockpartypeproduit">
+                                    <td>{{s.gs_produit.libelle}}</td>
+                                    <td>{{s.gs_produit.gs_theme.libelle}} </td>
+                                    <td>{{s.quantite}}</td>
+                                    <td> </td>
+
+
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <!-- end col-md-12 -->
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div *ngIf="select=='option2'">
+
+
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-body">
+                        <br>
+                        <div class="row">
+
+                            <div class="col-md-6 mr-auto">
+                                <legend>Date</legend>
+                                <mat-form-field >
+                                    <input matInput   [matDatepicker]="picker" placeholder="Choisir une date"  (dateChange)="onChangeEvent($event)" (click)="picker.open()">
+
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+
+                            </div>
+
+                            <div class="col-md-6 mr-auto">
+                                <legend> Rechercher</legend>
+                                <button mat-raised-button class="btn btn-info" (click)="rechertoutstock()">
+                                    <span class="material-icons">search</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <br>
+
+
+
+                        <div class="material-datatables" >
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Libelle</th>
+                                    <th scope="col">Theme</th>
+                                    <th scope="col">Quantité</th>
+                                    <th scope="col"> </th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let t of toutstock">
+                                    <td>{{t.gs_produit.libelle}}</td>
+                                    <td>{{t.gs_produit.gs_theme.libelle}} </td>
+                                    <td>{{t.quantite}}</td>
+                                    <td> </td>
+
+
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <!-- end col-md-12 -->
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
