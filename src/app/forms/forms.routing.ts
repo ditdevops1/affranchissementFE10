@@ -4,14 +4,14 @@ import { ExtendedFormsComponent } from './extendedforms/extendedforms.component'
 import { RegularFormsComponent } from './regularforms/regularforms.component';
 import { ValidationFormsComponent } from './validationforms/validationforms.component';
 import { WizardComponent } from './wizard/wizard.component';
-import {AuthGuard} from '../keycloak/auth.guard';
+// import {AuthGuard} from '../keycloak/auth.guard';
 
 export const FormsRoutes: Routes = [
     {
       path: '',
       children: [ {
         path: 'regular',
-          canActivate:[AuthGuard],
+          // canActivate:[AuthGuard],
         component: RegularFormsComponent
     }]}, {
     path: '',

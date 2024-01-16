@@ -2,7 +2,7 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
 
 
-/*export  function initializeKeycloak(keycloak: KeycloakService) {
+export  function initializeKeycloak(keycloak: KeycloakService) {
     return () =>
         keycloak.init({
             config: {
@@ -17,4 +17,4 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
         })
     
-}*/
+}

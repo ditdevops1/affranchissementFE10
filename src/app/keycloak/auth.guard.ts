@@ -1,4 +1,4 @@
-/*
+
 import { Injectable } from '@angular/core';
 import {
     ActivatedRouteSnapshot,
@@ -42,7 +42,7 @@ export class AuthGuard extends KeycloakAuthGuard {
             return true;
         }
       
-      /!*   let listrole= //JSON.parse(localStorage.getItem("role"))
+         let listrole= //JSON.parse(localStorage.getItem("role"))
             this.keycloak.getKeycloakInstance().realmAccess.roles
         // return listrole.every((role) => this.roles.includes(role));
         console.log(requiredRoles)
@@ -55,11 +55,11 @@ export class AuthGuard extends KeycloakAuthGuard {
             }
 
         }
-        return istrouve *!/
+        return istrouve
 
         // Allow the user to proceed if all the required roles are present.
         return requiredRoles.every((role) => this.roles.includes(role));
 
     }
 }
-*/
+

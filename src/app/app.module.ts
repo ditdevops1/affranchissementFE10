@@ -64,6 +64,7 @@ import { LignelivraisonModule } from './interface/lignelivraison/lignelivraison.
 import { LignelivraisonService } from './service/lignelivraison.service';
 import { StockModule } from './interface/stock/stock.module';
 import {DashboardModule} from '../../affranchissementFE10/src/app/dashboard/dashboard.module';
+import {initializeKeycloak} from '../../affranchissementFE10/src/app/keycloak/app.init';
  
 @NgModule({
   exports: [
@@ -115,8 +116,8 @@ export class MaterialModule {}
         SidebarModule,
         NavbarModule,
         FooterModule,
-        DashboardModule,
-        // KeycloakAngularModule,
+        // DashboardModule,
+        KeycloakAngularModule,
         FixedpluginModule
     ],
     declarations: [
@@ -128,12 +129,12 @@ export class MaterialModule {}
       MatNativeDateModule,
         Location, {provide: LocationStrategy, useClass: PathLocationStrategy},
 
-       /* {
+        {
             provide: APP_INITIALIZER,
             useFactory: initializeKeycloak,
             multi: true,
             deps: [KeycloakService],
-        }*/,
+        },
         ProduitService,TypecaisseService , ServicethemeService , ThemeModule , CommonModule ,
         LignecommandeModule, UsersconsummesService , LivraisonModule , LivraisonService ,LignelivraisonModule , LignelivraisonService ,
         StockModule

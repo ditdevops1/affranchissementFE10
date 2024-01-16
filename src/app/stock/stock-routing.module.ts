@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {AuthGuard} from '../keycloak/auth.guard';
+// import {AuthGuard} from '../keycloak/auth.guard';
 import {StockreceveurComponent} from './stockreceveur/stockreceveur.component';
 import {StockautrecaisseComponent} from './stockautrecaisse/stockautrecaisse.component';
+import {AuthGuard} from '../keycloak/auth.guard';
 
 
 export const StockRoutes: Routes = [
